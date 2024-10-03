@@ -1,0 +1,141 @@
+<WelcomeScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)  # Color blanco
+            Rectangle:
+                source: 'imagenes/fondo.png'  # Asegúrate de que la imagen exista
+                pos: self.pos
+                size: self.size 
+        Label:
+            text: "MenteAprende"
+            font_size: '48sp'
+            color: (0.3, 0.4, 0.6, 1)  # Azul grisáceo
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+        
+        Button:
+            text: "Comenzar"
+            size_hint: None, None
+            size: (200, 50)
+            background_color: (0.2, 0.6, 0.8, 1)  # Azul claro
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            on_press: root.switch_to_login()
+
+<LoginScreen>:
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                source: 'imagenes/fondo2.png'  # Ajusta la ruta de la imagen
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Bienvenido de nuevo!"
+            font_size: '36sp'
+            color: (0.2, 0.6, 0.8, 1)  # Azul claro
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+        
+        TextInput:
+            id: username
+            hint_text: "Correo electrónico"
+            size_hint: None, None
+            size: (300, 40)
+            background_color: (1, 1, 1, 0.9)  # Fondo blanco translúcido
+            pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        
+        TextInput:
+            id: password
+            hint_text: "Contraseña"
+            password: True
+            size_hint: None, None
+            size: (300, 40)
+            background_color: (1, 1, 1, 0.9)  # Fondo blanco translúcido
+            pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        
+        Button:
+            text: "Acceso"
+            size_hint: None, None
+            size: (300, 50)
+            background_color: (0.2, 0.6, 0.8, 1)  # Azul claro
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            on_press: root.validar_login()
+        
+        Button:
+            text: "Registro"
+            size_hint: None, None
+            size: (300, 50)
+            background_color: (0.4, 0.7, 0.9, 1)  # Azul más claro
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            on_press: root.switch_to_register()
+
+        Label:
+            id: error_message
+            text: ""  # Mensaje de error se establecerá desde el código Python
+            color: (1, 0, 0, 1)  # Rojo para el mensaje de error
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+
+<RegisterScreen>:
+    FloatLayout:
+        Label:
+            text: "Registro"
+            font_size: '36sp'
+            color: (0.2, 0.6, 0.8, 1)  # Azul claro
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {'center_x': 0.5, 'center_y': 0.85}
+        
+        TextInput:
+            id: full_name
+            hint_text: "Nombre completo"
+            size_hint: None, None
+            size: (300, 50)
+            background_color: (1, 1, 1, 0.9)  # Fondo blanco translúcido
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+        
+        TextInput:
+            id: email
+            hint_text: "Correo electrónico"
+            size_hint: None, None
+            size: (300, 50)
+            background_color: (1, 1, 1, 0.9)  # Fondo blanco translúcido
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+        
+        TextInput:
+            id: password
+            hint_text: "Contraseña"
+            password: True
+            size_hint: None, None
+            size: (300, 50)
+            background_color: (1, 1, 1, 0.9)  # Fondo blanco translúcido
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+        TextInput:
+            id: confirm_password
+            hint_text: "Confirmar contraseña"
+            password: True
+            size_hint: None, None
+            size: (300, 50)
+            background_color: (1, 1, 1, 0.9)  # Fondo blanco translúcido
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+        
+        Button:
+            text: "Enviar"
+            size_hint: None, None
+            size: (300, 50)
+            background_color: (0.2, 0.6, 0.8, 1)  # Azul claro
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            on_press: root.register()
+
+        Button:
+            text: "Volver a Inicio de Sesión"
+            size_hint: None, None
+            size: (300, 50)
+            background_color: (0.4, 0.7, 0.9, 1)  # Azul más claro
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            on_press: root.switch_to_login()
